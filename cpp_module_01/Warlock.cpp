@@ -41,6 +41,9 @@ void Warlock::introduce() const
 Warlock::~Warlock() 
 {
     std::cout << this->getName() << ": My job here is done!\n";
+    for (std::map<std::string, ASpell *>::iterator it = _SpellBook.begin(); it != _SpellBook.end(); ++it)
+        delete it->second;
+    _SpellBook.clear();
 }
 
 void Warlock::learnSpell(ASpell *obj)
